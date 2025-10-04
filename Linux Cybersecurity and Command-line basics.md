@@ -44,7 +44,7 @@ The useradd command created a basic user without a password or home directory, w
 
 `useradd earl`
 
-permission is denied, as creating a new user means modifying the passwd file, which only the root user has editing permissions for.
+Permission is denied, as creating a new user means modifying the passwd file, which only the root user has editing permissions for.
 
 ![Question 7](q7)
 
@@ -80,9 +80,79 @@ It's bad practice to stay logged in as root because root has permissions to modi
 
 13. Give sally the ability to execute sudo commands. Next, try to create a new user while logged in as sally.
 
-14. Create a new group called cybersec
+```bash
+sudo usermod -aG sudo sally
+sudo su sally
+sudo useradd anotheruser
+```
+
+![Question 13](q13)
+
+14. Create a new group called cybersec.
+
+`sudo groupadd cybersec`
 
 15. Add sally to the group, cybersec
 
+`sudo usermod -aG cybersec sally`
+
 16. Check to see which groups sally belongs.
+
+`groups sally`
+
+![Question 16](q16)
+
+**Permissions and Access Control Lists**
+
+17. Create a new directory called lab1. Enter the command to find the permissions of the directory. Who is the owner and group owner of this directory? What permissions does the owner, group and other have?
+
+```bash
+mkdir lab1
+ls -ld lab1
+```
+
+![Question 17](q17)
+
+The owner of this directory is olkhovskye, and the group owner is the olkhovskye group. The owner and group has permissions to read, write, and execute files in the directory. Other has permissions to read and execute files from the directory.
+
+18. Change your directory to lab1. Create a new bash file called, helloWorld. When ran, your program should just print “Hello World!”. (Don’t forget to make your bash file executable).
+
+```bash
+cd lab1
+touch helloWorld.sh
+vi helloWorld.sh
+chmod +x helloWorld.sh
+./helloWorld.sh
+```
+
+![Question 18](q18)
+
+19. Enter the command ls -la helloWorld. What are the reading, writing, and executing permissions for the owner, group and other?
+
+`ls -la helloWorld.sh`
+
+`-rwxrwxr-x 1 olkhovskye olkhovskye 40 Oct  3 20:12 helloWorld.sh`
+
+Owner and group has read, write, and execute permissions. Other only has execute permissions.
+
+a. Change the permissions so the group also has w and x permissions.
+
+`chmod g+wx helloWorld.sh`
+
+20. Use the getfacl command to view the ACL of the file.
+
+`getfacl helloWorld.sh`
+
+```
+# file: helloWorld.sh
+# owner: olkhovskye
+# group: olkhovskye
+user::rwx
+group::rwx
+other::r-x
+```
+
+21. Using the setfacl command, allow the user, sally, the ability to read and write to the file.
+
+`setfacl -m sally:rw helloWorld.sh`
 
