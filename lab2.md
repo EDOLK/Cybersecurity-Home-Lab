@@ -17,3 +17,5 @@ In this task, we study how a child process gets its environment variables from i
 **Step 1.** Please compile and run the following program, and describe your observation. The program can be found in the Labsetup folder; it can be compiled using "`gcc myprintenv.c`", which will generate a binary called `a.out`. Let’s run it and save the output into a file using "`a.out > file`".
 
 ![myprintenv.c](images/lab2/t2s1a)
+
+![output](images/lab2/t2s1b)
