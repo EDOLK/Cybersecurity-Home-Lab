@@ -16,7 +16,7 @@ In this task, we study how a child process gets its environment variables from i
 
 **Step 1.** Please compile and run the following program, and describe your observation. The program can be found in the Labsetup folder; it can be compiled using "`gcc myprintenv.c`", which will generate a binary called `a.out`. Let’s run it and save the output into a file using "`a.out > file`".
 
-```c
+```c filename="myprintenv.c"
 #include <unistd.h>
 #include <stdio.h>
 #include <stdlib.h>
@@ -65,7 +65,7 @@ In this task, we study how environment variables are affected when a new program
 
 **Step 1.** Please compile and run the following program, and describe your observation. This program simply executes a program called `/usr/bin/env`, which prints out the environment variables of the current process.
 
-```c
+```c filename="myenv.c"
 #include <unistd.h>
 
 extern char **environ;
@@ -88,7 +88,7 @@ It appears when starting a new process using ``execve()``, the new process does 
 **Step 2.** Change the invocation of ``execve()`` in Line ① to the following; describe your observation.
 
 ```c
-    execve("/usr/bin/env", argv, environ);
+execve("/usr/bin/env", argv, environ);
 ```
 
 ![output](images/lab2/t3s2a)
@@ -105,7 +105,7 @@ The new program gets its environment variables from the third argument provided 
 
 In this task, we study how environment variables are affected when a new program is executed via the `system()` function. This function is used to execute a command, but unlike `execve()`, which di- rectly executes a command, `system()` actually executes "`/bin/sh -c command`", i.e., it executes `/bin/sh`, and asks the shell to execute the command. If you look at the implementation of the `system()` function, you will see that it uses `execl()` to execute `/bin/sh`; `execl()` calls `execve()`, passing to it the environment variables array. Therefore, using `system()`, the environment variables of the calling process is passed to the new program `/bin/sh`. Please compile and run the following program to verify this.
 
-```c
+```c filename="mysystem.c"
 #include <stdio.h>
 #include <stdlib.h>
 
