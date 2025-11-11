@@ -3,13 +3,13 @@
 
 `sudo apt list --upgradable`
 
-![Question 1](images/q1)
+![Question 1](images/lab1/q1)
 
 2. Update and Upgrade your system.
 
 `sudo apt update && sudo apt upgrade -y`
 
-![Question 2](images/q2)
+![Question 2](images/lab1/q2)
 
 3. Reboot your system.
 
@@ -21,7 +21,7 @@
 
 `sudo su root`
 
-![Question 4](images/q4)
+![Question 4](images/lab1/q4)
 
 5. Create a new user with the name bobby using the command useradd. Next, create another user with the name sally using the command adduser. What is the difference between the two?
 
@@ -32,13 +32,13 @@ adduser sally
 
 The useradd command created a basic user without a password or home directory, while the adduser command created a home directory, and was interactive, asking me for input on the password and other information.
 
-![Question 5](images/q5)
+![Question 5](images/lab1/q5)
 
 6. Change the current user to sally. What does the prompt look like now?
 
 `su sally`
 
-![Question 6](images/q6)
+![Question 6](images/lab1/q6)
 
 7. While you’re logged in as sally still, try to create a new user with the name earl. What happens? Why?
 
@@ -46,19 +46,19 @@ The useradd command created a basic user without a password or home directory, w
 
 Permission is denied, as creating a new user means modifying the passwd file, which only the root user has editing permissions for.
 
-![Question 7](images/q7)
+![Question 7](images/lab1/q7)
 
 8. Enter exit until you are the original user, ubuntu, again. Delete the user earl. I didn’t show you the command, but Google it! “Googling” skills are a great skill in CS; It’s impossible to know everything.
 
 `userdel earl`
 
-![Question 8](images/q8)
+![Question 8](images/lab1/q8)
 
 9. Change the password of sally to something you can remember using sudo passwd sally.
 
 `sudo passwd sally`
 
-![Question 9](images/q9)
+![Question 9](images/lab1/q9)
 
 10. For the rest of the tasks, use the ubuntu user. Even though it’s easier to complete tasks/commands, why is it bad practice to stay logged in as root?
 
@@ -68,7 +68,7 @@ It's bad practice to stay logged in as root because root has permissions to modi
 
 `id`
 
-![Question 11](images/q11)
+![Question 11](images/lab1/q11)
 
 **Group Tasks:**
 
@@ -76,7 +76,7 @@ It's bad practice to stay logged in as root because root has permissions to modi
 
 `groups`
 
-![Question 12](images/q12)
+![Question 12](images/lab1/q12)
 
 13. Give sally the ability to execute sudo commands. Next, try to create a new user while logged in as sally.
 
@@ -86,7 +86,7 @@ sudo su sally
 sudo useradd anotheruser
 ```
 
-![Question 13](images/q13)
+![Question 13](images/lab1/q13)
 
 14. Create a new group called cybersec.
 
@@ -100,7 +100,7 @@ sudo useradd anotheruser
 
 `groups sally`
 
-![Question 16](images/q16)
+![Question 16](images/lab1/q16)
 
 **Permissions and Access Control Lists**
 
@@ -111,7 +111,7 @@ mkdir lab1
 ls -ld lab1
 ```
 
-![Question 17](images/q17)
+![Question 17](images/lab1/q17)
 
 The owner of this directory is olkhovskye, and the group owner is the olkhovskye group. The owner and group has permissions to read, write, and execute files in the directory. Other has permissions to read and execute files from the directory.
 
@@ -125,7 +125,7 @@ chmod +x helloWorld.sh
 ./helloWorld.sh
 ```
 
-![Question 18](images/q18)
+![Question 18](images/lab1/q18)
 
 19. Enter the command ls -la helloWorld. What are the reading, writing, and executing permissions for the owner, group and other?
 
