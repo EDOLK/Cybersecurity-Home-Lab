@@ -150,7 +150,7 @@ int main()
 
 These environment variables are set in the user’s shell process. Now, run the `Set-UID` program from Step 2 in your shell. After you type the name of the program in your shell, the shell forks a child process, and uses the child process to run the program. Please check whether all the environment variables you set in the shell process (parent) get into the `Set-UID` child process. Describe your observation. If there are surprises to you, describe them.
 
-![step 3](images/lab2/t5s3b)
+![step 3](images/lab2/t5s3c)
 
 It appears that only the default environment variables are inherited by the child process, while any variables defined within the parent process using `export` are not.
 
