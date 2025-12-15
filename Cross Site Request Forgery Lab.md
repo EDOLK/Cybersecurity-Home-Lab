@@ -109,7 +109,14 @@ I used the following code to execute the attack:
 
 	</script>
 ```
-<!-- TODO: add images -->
+
+The result:
+
+![8a](images/lab3/8a)
+
+Npm's logs:
+
+![8a](images/lab3/8b)
 
 **9** Briefly explain one countermeasure you could implement in the web browser to prevent a CSRF. You don’t need to implement the countermeasure.
 
