@@ -118,10 +118,10 @@ Npm's logs:
 
 ![8a](images/lab3/8b)
 
-**9** Briefly explain one countermeasure you could implement in the web browser to prevent a CSRF. You don’t need to implement the countermeasure.
+**9**. Briefly explain one countermeasure you could implement in the web browser to prevent a CSRF. You don’t need to implement the countermeasure.
 
 A countermeasure you could implements to prevent a CSRF is a secret token. This token, which would be unique to each user, would be embedded only in the form found in the fund transfer page, and would be expected by the transfer route on the backend. If absent or invalid, the request would be rejected. 
 Since this token is only accessible through our website and not stored locally by the user like a cookie, an attacker would not be able to forward it along with their malicious request, effectively preventing the attack.
 
-**10**Submit your answers and updated program as a zip file.
+**10**. Submit your answers and updated program as a zip file.
 
